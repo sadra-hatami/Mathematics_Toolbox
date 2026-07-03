@@ -26,6 +26,6 @@ Mathematics Toolbox - v1.7.22
 
 📧 لینک چت ناشناس: https://abzarek.ir/service-p/msg/3429526
 
-📧 کانال: @Mathematics_Toolbox
+📧 کانال (در تلگرام(اصلی)، روبیکا، ایتا، بله، سروش پلاس): @Mathematics_Toolbox
 
 📧 ایمیل سازنده برنامه: sadra.hatami.1732@gmail.com
