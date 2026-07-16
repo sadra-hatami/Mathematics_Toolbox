@@ -2,7 +2,7 @@
 
 # Mathematics Toolbox
 
-### A Comprehensive Persian Mathematics Toolkit & Middle School Learning Platform
+### A Comprehensive Persian Mathematics Toolbox & Middle School Learning Platform
 
 A powerful educational project that combines **32+ specialized mathematical tools** with **comprehensive middle school mathematics education**, helping students both **solve mathematical problems** and **learn mathematics effectively** in one integrated platform.
 
