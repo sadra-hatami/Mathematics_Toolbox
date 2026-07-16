@@ -163,6 +163,6 @@ Your support encourages future improvements and helps more students benefit from
 
 <div align="center">
 
-## ❤️ Designed & Developed by **Sadra Hatami**
+## Designed & Developed with ❤️ for the developer community of Iran and the world by **Sadra Hatami**
 
 </div>
