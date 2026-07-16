@@ -145,6 +145,6 @@ Your support encourages future improvements and helps more students benefit from
 
 <div align="center">
 
-## ❤️ Designed & Developed by **Sadra Hatami**
+## ❤️ Developed with passion by **Sadra Hatami**
 
 </div>
