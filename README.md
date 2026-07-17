@@ -1,7 +1,7 @@
 <div align="center">
 
 # Mathematics Toolbox
-#3 🧮
+## 🧮
 
 ### A Comprehensive Persian Mathematics Toolbox & Middle School Learning Platform
 
