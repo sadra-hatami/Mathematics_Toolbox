@@ -383,7 +383,7 @@ Your support helps improve future educational software and encourages the contin
 
 <div align="center">
 
-# ❤️ Mathematics Toolbox
+## Designed & Developed with ❤️ for the developer community of Iran and the world by **Sadra Hatami**
 
 ### Developed with passion for mathematics and education.
 
