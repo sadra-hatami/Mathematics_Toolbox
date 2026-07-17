@@ -3,106 +3,394 @@
 # Mathematics Toolbox
 # ➕➖🧮✖️➗
 
-### A Comprehensive Persian Mathematics Toolbox & Middle School Learning Platform
+### A Comprehensive Persian Mathematics Learning & Problem-Solving Platform
 
-A powerful educational project that combines **32+ specialized mathematical tools** with **comprehensive middle school mathematics education**, helping students both **solve mathematical problems** and **learn mathematics effectively** in one integrated platform.
+An all-in-one desktop application that combines **32+ specialized mathematical tools** with **complete middle school mathematics education**, interactive learning resources, and exam-oriented practice in a single modern application.
 
 <br>
 
 # 👨‍💻 **Sadra Hatami**
 
-### *Developer • Designer • Creator*
+### *Developer • Software Engineer • Creator*
 
 <br>
 
-![Python](https://img.shields.io/badge/Python-3.x-blue?style=for-the-badge\&logo=python)
-![Education](https://img.shields.io/badge/Education-Mathematics-success?style=for-the-badge)
-![GUI](https://img.shields.io/badge/Desktop-Application-orange?style=for-the-badge)
-![GitHub](https://img.shields.io/badge/Open_Source-Project-black?style=for-the-badge\&logo=github)
+![Python](https://img.shields.io/badge/Python-3.x-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![PyQt5](https://img.shields.io/badge/PyQt5-GUI-41CD52?style=for-the-badge&logo=qt&logoColor=white)
+![Education](https://img.shields.io/badge/Education-Mathematics-orange?style=for-the-badge)
+![Desktop](https://img.shields.io/badge/Desktop-Application-0078D6?style=for-the-badge)
+![Persian](https://img.shields.io/badge/Language-Persian-success?style=for-the-badge)
+![GitHub](https://img.shields.io/badge/Open_Source-Project-black?style=for-the-badge&logo=github)
 
 <br>
 
-[🌐 Website](https://sadra-hatami.github.io/Mathematics-Toolbox/)    
+[🌐 Website](https://sadra-hatami.github.io/Mathematics-Toolbox/)
+•
 [📧 Support](mailto:mathematics.toolbox.sadra@gmail.com)
 
 </div>
 
 ---
 
+# 📑 Table of Contents
+
+- About
+- Features
+- Educational Platform
+- Mathematical Tools
+- Technologies
+- Installation
+- Usage
+- Target Audience
+- Future Roadmap
+- Contact
+- License
+
+---
+
 # 📖 About
 
-**Mathematics Toolbox** is a comprehensive Persian educational project that brings together **advanced mathematical problem-solving tools** and **complete middle school mathematics education** in a single platform.
+**Mathematics Toolbox** is a comprehensive Persian educational desktop application developed to simplify both **learning mathematics** and **solving mathematical problems**.
 
-Unlike traditional calculator applications that only provide mathematical utilities, Mathematics Toolbox also serves as a structured learning resource. Students can both **solve mathematical problems using specialized tools** and **learn mathematics through organized educational content, lessons, explanations, and exam-oriented practice questions**.
+Unlike traditional calculators or single-purpose applications, Mathematics Toolbox combines dozens of mathematical utilities with structured educational content, allowing students to study, practice, and solve problems within one unified environment.
 
-The project is designed to support students throughout their middle school mathematics journey while making mathematical concepts easier to understand and apply.
+The project has been designed primarily for Persian-speaking learners and provides an intuitive interface suitable for classroom education, self-study, and exam preparation.
 
-It is suitable for both **SAMPAD (Gifted)** students and students studying in public or private schools.
-
----
-
-# ✨ Features
-
-## 🧮 Mathematical Problem Solving
-
-* 🧮 More than **32 specialized mathematical tools**
-* 📐 Algebra utilities
-* 📏 Geometry calculations
-* 🔢 Number theory tools
-* 📊 Statistics and probability
-* 🧮 Equation solving and mathematical calculations
-* ⚡ Fast and user-friendly interface
-
-## 📚 Mathematics Education
-
-* 📖 Comprehensive middle school mathematics lessons
-* 📝 Exam-oriented practice questions
-* 🎯 Structured educational content
-* 📘 Step-by-step learning materials
-* 🏫 Suitable for both gifted and regular students
-* 💡 Designed to strengthen mathematical understanding rather than only providing answers
+Its goal is not only to perform mathematical calculations but also to help students understand mathematical concepts through organized educational content and practical exercises.
 
 ---
 
-# 🎯 Project Goals
+# 🚀 Why Mathematics Toolbox?
 
-Mathematics Toolbox was created with two primary goals:
+Mathematics Toolbox was created to bridge the gap between educational software and practical mathematical utilities.
 
-### 1️⃣ Mathematical Problem Solving
+Instead of switching between multiple applications for calculations, lessons, and exercises, students can access everything they need from one integrated platform.
 
-To provide a comprehensive collection of specialized mathematical tools that help students solve mathematical problems quickly, accurately, and efficiently.
+The project focuses on:
 
-### 2️⃣ Mathematics Education
-
-To provide a complete educational platform for middle school mathematics, enabling students to learn concepts, review lessons, practice with exam-style questions, and improve their mathematical skills.
-
-Instead of using multiple separate applications for learning and calculations, students can access everything they need in one place.
+- Improving mathematical understanding
+- Accelerating problem solving
+- Supporting independent learning
+- Preparing students for school examinations
+- Making mathematics more accessible through technology
 
 ---
+
+# ✨ Key Features
+
+## 🧮 Mathematical Problem-Solving Tools
+
+Mathematics Toolbox includes more than **32 specialized mathematical utilities**, enabling users to solve a wide range of mathematical problems quickly and accurately.
+
+The application covers multiple branches of mathematics, including algebra, geometry, number theory, statistics, probability, sequences, fractions, and numerical analysis.
+
+### Main Categories
+
+| Category | Description |
+|----------|-------------|
+| 🔢 Number Theory | Prime numbers, divisors, GCD, LCM, Euler's Totient, factorization and more |
+| 📐 Geometry | Polygon calculations, areas, perimeters, Pythagorean theorem, coordinate geometry |
+| ➗ Algebra | Equations, mathematical expressions, fraction calculations |
+| 📊 Statistics & Probability | Statistical calculations and probability utilities |
+| 🌀 Sequences | Fibonacci sequence, prime sequence and mathematical patterns |
+| 🧠 Mathematical Utilities | Various mathematical calculators and helper tools |
+
+---
+
+# 📚 Educational Platform
+
+Mathematics Toolbox is not only a collection of calculators.
+
+It also serves as a comprehensive educational platform for **middle school mathematics**, allowing students to strengthen their mathematical knowledge while solving real problems.
+
+Educational content is carefully organized to help students understand concepts rather than simply obtaining answers.
+
+The application includes:
+
+- 📖 Comprehensive middle school mathematics lessons
+- 📝 Exam-oriented practice questions
+- 🎯 Concept-based learning resources
+- 📚 Educational explanations
+- 💡 Practical mathematical examples
+- 🏫 Suitable for classroom learning and self-study
+
+---
+
+# 🚀 Project Highlights
+
+✅ Combines **education** and **problem solving** in one application
+
+✅ More than **32 integrated mathematical tools**
+
+✅ Designed specifically for Persian-speaking students
+
+✅ User-friendly desktop interface
+
+✅ Fast and lightweight performance
+
+✅ Beginner-friendly experience
+
+✅ Educational and practical at the same time
+
+✅ Helps students prepare for school examinations
+
+✅ Eliminates the need for multiple mathematical applications
+
+✅ Modern graphical user interface built with Python & PyQt5
+
+---
+
+# 🎯 Core Advantages
+
+Unlike traditional calculators, Mathematics Toolbox focuses on both **learning** and **solving**.
+
+Instead of giving users only the final answer, the project aims to improve mathematical understanding through educational content and interactive tools.
+
+This makes the application suitable not only for students but also for teachers, parents, and anyone interested in mathematics.
+
+---
+
+# 💡 Why This Project?
+
+Many mathematical applications focus only on calculations.
+
+Mathematics Toolbox goes one step further by combining:
+
+- Powerful mathematical utilities
+- Educational resources
+- Practice exercises
+- Exam preparation
+- Simple and intuitive interface
+
+into one unified desktop application.
+
+The result is an educational environment where students can both **learn mathematics** and **solve mathematical problems** efficiently.
 
 # 🛠️ Technologies
 
-* Python
-* PyQt5
-* HTML
-* CSS
-* JavaScript
+Mathematics Toolbox has been developed using modern technologies focused on desktop application development, educational software design, and user experience.
+
+### Core Technologies
+
+| Technology | Purpose |
+|------------|---------|
+| Python | Main programming language |
+| PyQt5 | Graphical User Interface (GUI) |
+| HTML | Documentation & Web Components |
+| CSS | Styling & User Interface Design |
+| JavaScript | Interactive Web Features |
 
 ---
 
-# 🌐 Website
+# 📦 Installation
 
-https://sadra-hatami.github.io/Mathematics-Toolbox/
+## Requirements
+
+- Python 3.x
+- PyQt5
+
+## Clone Repository
+
+```bash
+git clone https://github.com/sadra-hatami/Mathematics-Toolbox.git
+cd Mathematics-Toolbox
+```
+
+## Install Dependencies
+
+```bash
+pip install PyQt5
+```
+
+## Run Application
+
+```bash
+python main.py
+```
+
+---
+
+# ▶️ Usage
+
+After launching the application, users can access all available mathematical tools directly from the main interface.
+
+Typical workflow:
+
+1. Select a mathematical tool.
+2. Enter the required values.
+3. Execute the calculation.
+4. View the results instantly.
+5. Use educational sections for learning and practice.
+
+The application is designed to minimize complexity and provide a smooth learning experience for students.
+
+---
+
+# 📂 Project Structure
+
+```text
+Mathematics-Toolbox/
+│
+├── main.py
+├── assets/
+├── educational-content/
+├── tools/
+├── screenshots/
+├── README.md
+│
+└── other project files
+```
+
+> The actual structure may vary depending on future updates.
+
+---
+
+# 📸 Screenshots
+
+### Main Interface
+
+Add a screenshot of the main application window here.
+
+```md
+![Main Window](screenshots/main-window.png)
+```
+
+### Mathematical Tools
+
+Add screenshots demonstrating different mathematical utilities.
+
+```md
+![Mathematical Tools](screenshots/tools.png)
+```
+
+### Educational Section
+
+Add screenshots of lessons and educational content.
+
+```md
+![Educational Content](screenshots/education.png)
+```
 
 ---
 
 # 🎓 Target Audience
 
-* Middle school students
-* SAMPAD (Gifted) students
-* Mathematics teachers
-* Parents
-* Anyone interested in learning mathematics
+Mathematics Toolbox has been designed for a wide range of users.
+
+### Students
+
+- Middle school students
+- SAMPAD (Gifted School) students
+- Students preparing for examinations
+
+### Educators
+
+- Mathematics teachers
+- Private tutors
+- Educational institutions
+
+### General Users
+
+- Parents supporting student learning
+- Mathematics enthusiasts
+- Anyone interested in improving mathematical skills
+
+---
+
+# 🌍 Live Demo
+
+### Official Website
+
+https://sadra-hatami.github.io/Mathematics-Toolbox/
+
+The website provides information about the project and serves as its official online presence.
+
+---
+
+# 🏆 Project Achievements
+
+- Comprehensive educational mathematics platform
+- 32+ specialized mathematical tools
+- Persian-language educational focus
+- Unified learning and problem-solving environment
+- User-friendly desktop application
+- Suitable for both academic and personal learning
+
+
+---
+
+# 🚀 Roadmap
+
+Mathematics Toolbox is an actively evolving project. Future updates may include:
+
+- 📈 Additional mathematical tools
+- 🧠 AI-assisted mathematical problem solving
+- 📊 Advanced graph plotting
+- 📐 Interactive geometry visualizations
+- 📚 Expanded educational content
+- 🎥 Video-based learning resources
+- 📝 Interactive quizzes and assessments
+- 🌍 English language support
+- 🔄 Automatic update system
+- ☁️ Cloud synchronization
+- 📱 Mobile application
+- 🌐 Web-based version
+
+---
+
+# 💡 Future Vision
+
+The long-term vision of **Mathematics Toolbox** is to become one of the most comprehensive Persian mathematics platforms by combining education, visualization, and intelligent mathematical tools into a unified ecosystem.
+
+The project aims to continuously expand its educational resources while introducing new mathematical utilities that support students, teachers, and mathematics enthusiasts.
+
+---
+
+# ❓ Frequently Asked Questions
+
+### Is Mathematics Toolbox free?
+
+Yes. The project is freely available for educational purposes.
+
+### Who is this project designed for?
+
+It is primarily designed for middle school students, especially Persian-speaking learners, while also being useful for teachers, parents, and anyone interested in mathematics.
+
+### Does it only solve mathematical problems?
+
+No.
+
+Mathematics Toolbox combines **problem-solving tools** with **educational content**, helping users both learn mathematics and solve mathematical problems efficiently.
+
+### Which topics are covered?
+
+The project currently includes tools related to:
+
+- Number Theory
+- Algebra
+- Geometry
+- Statistics
+- Probability
+- Sequences
+- Fractions
+- Mathematical Utilities
+
+---
+
+# 🤝 Contributing
+
+Contributions are always welcome.
+
+If you would like to improve Mathematics Toolbox, you can:
+
+- Report bugs
+- Suggest new mathematical tools
+- Improve educational content
+- Enhance the user interface
+- Optimize performance
+- Submit Pull Requests
+
+Every contribution helps make this project better for students and educators.
 
 ---
 
@@ -110,29 +398,27 @@ https://sadra-hatami.github.io/Mathematics-Toolbox/
 
 ### Support
 
-📧 [mathematics.toolbox.sadra@gmail.com](mailto:mathematics.toolbox.sadra@gmail.com)
-
-### Anonymous Messages
-
-https://abzarek.ir/service-p/msg/4994415
-
-### Official Channels
-
-Telegram • Rubika • Eitaa • Baleh • Soroush+
-
-**@Mathematics_Toolbox**
+📧 mathematics.toolbox.sadra@gmail.com
 
 ### Developer
 
-**Sadra Hatami**
+## **Sadra Hatami**
 
-📧 [sadra.hatami.1732@gmail.com](mailto:sadra.hatami.1732@gmail.com)
+📧 sadra.hatami.1732@gmail.com
+
+---
+
+# 🌐 Official Website
+
+https://sadra-hatami.github.io/Mathematics-Toolbox/
 
 ---
 
 # 📄 License
 
 This project is licensed under the **MIT License**.
+
+You are free to use, modify, and distribute this software under the terms of the MIT License.
 
 ---
 
@@ -142,28 +428,46 @@ This project is licensed under the **MIT License**.
 
 All rights reserved.
 
-The source code, educational materials, website design, and project structure are protected by copyright.
+The source code, educational materials, graphical user interface, application design, documentation, website content, and project structure are protected under applicable copyright laws.
+
+Unauthorized redistribution of copyrighted materials without proper permission may violate intellectual property rights.
 
 ---
 
-# 🤝 Contributing
+# 🙏 Acknowledgements
 
-Contributions, suggestions, bug reports, and feature requests are welcome.
-
-Feel free to open an Issue or submit a Pull Request.
+Special thanks to everyone who supports open-source education and contributes to making mathematics more accessible through technology.
 
 ---
 
-# ⭐ Support
+# ⭐ Support the Project
 
-If this project helped you, please consider giving it a ⭐ on GitHub.
+If you found this project useful, please consider:
 
-Your support encourages future improvements and helps more students benefit from the project.
+⭐ Starring this repository
+
+🐛 Reporting bugs
+
+💡 Suggesting new features
+
+📢 Sharing the project with others
+
+Your support helps improve future educational software and encourages the continued development of free learning resources.
 
 ---
 
 <div align="center">
 
-## Designed & Developed with ❤️ for the developer community of Iran and the world by **Sadra Hatami**
+# ❤️ Mathematics Toolbox
+
+### Developed with passion for mathematics and education.
+
+<br>
+
+## 👨‍💻 **Sadra Hatami**
+
+### Developer • Software Engineer • Creator
+
+⭐ If you like this project, don't forget to star the repository!
 
 </div>
