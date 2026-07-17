@@ -330,6 +330,16 @@ Every contribution helps make this project better for students and educators.
 
 📧 sadra.hatami.1732@gmail.com
 
+### Anonymous Messages
+
+https://abzarek.ir/service-p/msg/4994415
+
+### Official Channels
+
+Telegram • Rubika • Eitaa • Baleh • Soroush+
+
+**@Mathematics_Toolbox**
+
 ---
 
 # 🌐 Official Website
