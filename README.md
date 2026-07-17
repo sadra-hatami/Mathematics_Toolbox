@@ -323,12 +323,15 @@ Every contribution helps make this project better for students and educators.
 ### Support
 📧 mathematics.toolbox.sadra@gmail.com
 
+
 ### Developer
 ### **Sadra Hatami**
 📧 sadra.hatami.1732@gmail.com
 
+
 ### Anonymous Messages
 🌐 https://abzarek.ir/service-p/msg/4994415
+
 
 ### Official Channels
 Telegram • Rubika • Eitaa • Baleh • Soroush+
