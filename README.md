@@ -198,53 +198,6 @@ The application is designed to minimize complexity and provide a smooth learning
 
 ---
 
-# 📂 Project Structure
-
-```text
-Mathematics-Toolbox/
-│
-├── main.py
-├── assets/
-├── educational-content/
-├── tools/
-├── screenshots/
-├── README.md
-│
-└── other project files
-```
-
-> The actual structure may vary depending on future updates.
-
----
-
-# 📸 Screenshots
-
-### Main Interface
-
-Add a screenshot of the main application window here.
-
-```md
-![Main Window](screenshots/main-window.png)
-```
-
-### Mathematical Tools
-
-Add screenshots demonstrating different mathematical utilities.
-
-```md
-![Mathematical Tools](screenshots/tools.png)
-```
-
-### Educational Section
-
-Add screenshots of lessons and educational content.
-
-```md
-![Educational Content](screenshots/education.png)
-```
-
----
-
 # 🎓 Target Audience
 
 Mathematics Toolbox has been designed for a wide range of users.
