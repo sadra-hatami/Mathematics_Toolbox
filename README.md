@@ -331,8 +331,7 @@ Every contribution helps make this project better for students and educators.
 https://abzarek.ir/service-p/msg/4994415
 
 ### Official Channels
-Telegram • Rubika • Eitaa • Baleh • Soroush+
-**@Mathematics_Toolbox**
+**@Mathematics_Toolbox** ---> Telegram • Rubika • Eitaa • Baleh • Soroush+
 
 ---
 
