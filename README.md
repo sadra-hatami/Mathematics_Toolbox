@@ -22,6 +22,7 @@ An all-in-one desktop application that combines **32+ specialized mathematical t
 [![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20Linux%20%7C%20macOS-0078D6?style=for-the-badge)](https://github.com/sadra-hatami/Mathematics_Toolbox)
 ![Education](https://img.shields.io/badge/Education-Mathematics-orange?style=for-the-badge)
 ![Persian](https://img.shields.io/badge/Language-Persian-success?style=for-the-badge)
+![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live-blue?style=for-the-badge\&logo=github)
 ![GitHub](https://img.shields.io/badge/Open_Source-Project-black?style=for-the-badge&logo=github)
 
 
