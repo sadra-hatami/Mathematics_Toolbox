@@ -6,6 +6,7 @@
     <meta name="description" content="جعبه ابزار ریاضیات v1.7.22 - قدرتمندترین جعبه ابزار ریاضی فارسی با بیش از ۳۲ ابزار تخصصی برای جبر، هندسه، نظریه اعداد، آمار و احتمال">
     <meta name="keywords" content="جعبه ابزار ریاضیات, Mathematics Toolbox, صدرا حاتمی, غربال اعداد اول, ب.م.م, ک.م.م, حل معادله, رسم شکل هندسی">
     <meta name="author" content="صدرا حاتمی | Sadra Hatami">
+    <meta name="theme-color" content="#1a1a1a">
 
     <title>جعبه ابزار ریاضیات | Mathematics Toolbox</title>
     
@@ -21,14 +22,18 @@
         }
         
         :root {
-            --bg: #1a1a1a;
-            --bg2: #252525;
-            --card: #2a2a2a;
+            --bg: #121212;
+            --bg2: #1e1e1e;
+            --card: #242424;
             --accent: #FF9800;
             --accent2: #ffb74d;
-            --text: #e8e8e8;
-            --text2: #b0b0b0;
-            --border: #3a3a3a;
+            --accent-soft: rgba(255, 152, 0, 0.12);
+            --text: #f0f0f0;
+            --text2: #a0a0a0;
+            --border: #333333;
+            --success: #4CAF50;
+            --radius: 18px;
+            --shadow: 0 12px 40px -12px rgba(0,0,0,0.55);
         }
         
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -40,17 +45,19 @@
             direction: rtl;
             line-height: 1.7;
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
         
-        .container { max-width: 1280px; margin: 0 auto; padding: 0 1.25rem; }
+        .container { max-width: 1240px; margin: 0 auto; padding: 0 1.25rem; }
         
-        /* Header with copyright bar */
+        /* ========== HEADER ========== */
         header {
             position: sticky;
             top: 0;
             z-index: 1000;
-            background: rgba(26, 26, 26, 0.95);
-            backdrop-filter: blur(20px);
+            background: rgba(18, 18, 18, 0.92);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
             border-bottom: 1px solid var(--border);
         }
         
@@ -66,17 +73,18 @@
             align-items: center;
             gap: 12px;
             cursor: pointer;
+            transition: opacity 0.2s;
         }
+        .logo:hover { opacity: 0.9; }
         
         .logo-icon {
-            width: 50px;
-            height: 50px;
+            width: 48px;
+            height: 48px;
             border-radius: 12px;
             overflow: hidden;
             flex-shrink: 0;
             border: 2px solid var(--accent);
-            box-shadow: 0 4px 15px rgba(255,152,0,0.25);
-            background: transparent; /* یا حذف این خط */
+            box-shadow: 0 4px 16px rgba(255,152,0,0.25);
         }
         .logo-icon img {
             width: 100%;
@@ -85,22 +93,33 @@
             display: block;
         }
         
+        .logo-text {
+            font-size: 1.28rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        
         .nav-links {
             display: flex;
             align-items: center;
-            gap: 2.1rem;
+            gap: 1.9rem;
         }
         
         .nav-links a {
             color: var(--text);
             text-decoration: none;
             font-weight: 500;
-            font-size: 1.02rem;
+            font-size: 1rem;
             transition: color 0.2s;
             position: relative;
+            padding: 4px 0;
         }
         
         .nav-links a:hover { color: var(--accent); }
+        
+        .nav-links a.active {
+            color: var(--accent);
+        }
         .nav-links a.active::after {
             content: '';
             position: absolute;
@@ -117,20 +136,60 @@
             background: none;
             border: none;
             color: var(--text);
-            font-size: 1.7rem;
+            font-size: 1.6rem;
             cursor: pointer;
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+            transition: background 0.2s;
+        }
+        .hamburger:hover { background: rgba(255,255,255,0.06); }
+        
+        /* ========== MOBILE MENU ========== */
+        .mobile-menu {
+            display: none;
+            background: #1a1a1a;
+            padding: 0.6rem 1.25rem 1.4rem;
+            border-top: 1px solid var(--border);
+            animation: slideDown 0.28s ease;
         }
         
-        /* Hero - Full viewport */
+        .mobile-menu a {
+            display: block;
+            padding: 0.85rem 0.5rem;
+            color: var(--text);
+            text-decoration: none;
+            border-bottom: 1px solid #2a2a2a;
+            font-size: 1.05rem;
+            transition: color 0.2s, padding-right 0.2s;
+        }
+        .mobile-menu a:last-of-type { border-bottom: none; }
+        .mobile-menu a:hover {
+            color: var(--accent);
+            padding-right: 12px;
+        }
+        
+        .mobile-menu .btn {
+            width: 100%;
+            margin-top: 1.1rem;
+            justify-content: center;
+        }
+        
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* ========== HERO ========== */
         .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
-            background: linear-gradient(135deg, #1a1a1a 0%, #252525 100%);
+            background: linear-gradient(160deg, #121212 0%, #1a1a1a 50%, #1e1e1e 100%);
             overflow: hidden;
-            padding: 2rem 0;
+            padding: 2rem 0 4rem;
         }
         
         .hero::before {
@@ -138,51 +197,55 @@
             position: absolute;
             inset: 0;
             background: 
-                radial-gradient(circle at 25% 30%, rgba(255,152,0,0.07) 0%, transparent 50%),
-                radial-gradient(circle at 75% 70%, rgba(255,152,0,0.05) 0%, transparent 50%);
+                radial-gradient(circle at 20% 25%, rgba(255,152,0,0.08) 0%, transparent 45%),
+                radial-gradient(circle at 80% 70%, rgba(255,152,0,0.05) 0%, transparent 45%);
             pointer-events: none;
         }
         
         .math-float {
             position: absolute;
-            font-size: 3.8rem;
-            color: rgba(255,152,0,0.07);
-            animation: floatMath 7s ease-in-out infinite;
+            font-size: 3.6rem;
+            color: rgba(255,152,0,0.06);
+            animation: floatMath 8s ease-in-out infinite;
             user-select: none;
             z-index: 1;
+            pointer-events: none;
         }
         
         @keyframes floatMath {
             0%,100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-25px) rotate(8deg); }
+            50% { transform: translateY(-22px) rotate(6deg); }
         }
         
         .hero-content {
             text-align: center;
             position: relative;
             z-index: 2;
-            max-width: 920px;
+            max-width: 900px;
             padding: 0 1rem;
         }
         
         .hero h1 {
-            font-size: clamp(2.6rem, 7vw, 4.3rem);
-            line-height: 1.05;
+            font-size: clamp(2.5rem, 6.5vw, 4.1rem);
+            line-height: 1.1;
             font-weight: 800;
-            margin-bottom: 1.3rem;
+            margin-bottom: 1.2rem;
+            letter-spacing: -0.5px;
         }
         
         .hero .gradient-text {
             background: linear-gradient(90deg, var(--accent), var(--accent2));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
         
         .hero p {
-            font-size: clamp(1.1rem, 2.8vw, 1.45rem);
+            font-size: clamp(1.05rem, 2.5vw, 1.35rem);
             color: var(--text2);
-            max-width: 680px;
+            max-width: 640px;
             margin: 0 auto 2.2rem;
+            line-height: 1.8;
         }
         
         .hero-buttons {
@@ -195,13 +258,13 @@
         .btn {
             display: inline-flex;
             align-items: center;
-            gap: 0.6rem;
-            padding: 1rem 2.4rem;
+            gap: 0.55rem;
+            padding: 0.95rem 2.2rem;
             border-radius: 9999px;
-            font-size: 1.05rem;
+            font-size: 1.02rem;
             font-weight: 600;
             text-decoration: none;
-            transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+            transition: all 0.28s cubic-bezier(0.4,0,0.2,1);
             border: none;
             cursor: pointer;
             font-family: inherit;
@@ -209,13 +272,13 @@
         
         .btn-primary {
             background: linear-gradient(135deg, var(--accent), var(--accent2));
-            color: #1a1a1a;
-            box-shadow: 0 8px 25px rgba(255,152,0,0.4);
+            color: #121212;
+            box-shadow: 0 8px 28px rgba(255,152,0,0.35);
         }
         
         .btn-primary:hover {
-            transform: translateY(-4px) scale(1.02);
-            box-shadow: 0 15px 35px rgba(255,152,0,0.5);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 14px 36px rgba(255,152,0,0.45);
         }
         
         .btn-outline {
@@ -226,56 +289,57 @@
         
         .btn-outline:hover {
             background: var(--accent);
-            color: #1a1a1a;
-            transform: translateY(-3px);
+            color: #121212;
+            transform: translateY(-2px);
         }
         
         .stats {
             display: flex;
             justify-content: center;
-            gap: 3.5rem;
-            margin-top: 3.5rem;
+            gap: 3.2rem;
+            margin-top: 3.8rem;
             flex-wrap: wrap;
         }
         
         .stat {
             text-align: center;
+            min-width: 100px;
         }
         
         .stat-number {
-            font-size: 2.6rem;
+            font-size: 2.5rem;
             font-weight: 700;
             color: var(--accent);
             line-height: 1;
         }
         
         .stat-label {
-            font-size: 0.95rem;
+            font-size: 0.92rem;
             color: var(--text2);
-            margin-top: 0.3rem;
+            margin-top: 0.35rem;
         }
         
-        /* Page sections */
+        /* ========== PAGES ========== */
         .page {
             display: none;
             min-height: 100vh;
-            padding-top: 1rem;
+            padding-top: 0.5rem;
         }
         
         .page.active {
             display: block;
-            animation: pageFade 0.45s ease forwards;
+            animation: pageFade 0.4s ease forwards;
         }
         
         @keyframes pageFade {
-            from { opacity: 0; transform: translateY(15px); }
+            from { opacity: 0; transform: translateY(12px); }
             to { opacity: 1; transform: translateY(0); }
         }
         
         .section-title {
-            font-size: clamp(1.9rem, 5vw, 2.6rem);
+            font-size: clamp(1.85rem, 4.5vw, 2.5rem);
             color: var(--accent);
-            margin-bottom: 1.8rem;
+            margin-bottom: 0.6rem;
             position: relative;
             display: inline-block;
         }
@@ -283,72 +347,74 @@
         .section-title::after {
             content: '';
             position: absolute;
-            bottom: -10px;
+            bottom: -8px;
             right: 0;
-            width: 55%;
-            height: 4px;
+            width: 50%;
+            height: 3px;
             background: linear-gradient(to left, var(--accent), transparent);
-            border-radius: 4px;
+            border-radius: 3px;
         }
         
-        /* Glass cards */
+        .section-subtitle {
+            color: var(--text2);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+        
+        /* ========== GLASS & CARDS ========== */
         .glass {
-            background: rgba(42, 42, 42, 0.75);
-            backdrop-filter: blur(18px);
+            background: rgba(36, 36, 36, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
             border: 1px solid var(--border);
-            border-radius: 20px;
+            border-radius: var(--radius);
         }
         
-        /* Tool cards - Creative & Responsive */
         .tool-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(295px, 1fr));
-            gap: 1.35rem;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.25rem;
         }
         
         .tool-card {
             background: var(--card);
             border: 1px solid var(--border);
-            border-radius: 18px;
-            padding: 1.6rem 1.45rem;
-            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: var(--radius);
+            padding: 1.5rem 1.4rem;
+            transition: all 0.32s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             overflow: hidden;
         }
         
         .tool-card:hover {
-            transform: translateY(-9px);
+            transform: translateY(-7px);
             border-color: var(--accent);
-            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.5);
+            box-shadow: var(--shadow);
         }
         
         .tool-card::after {
             content: '';
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 60%;
-            height: 60%;
-            background: linear-gradient(
-                to bottom right,
-                rgba(255,152,0,0.12) 0%,
-                transparent 60%
-            );
+            top: -40%;
+            left: -40%;
+            width: 55%;
+            height: 55%;
+            background: linear-gradient(to bottom right, rgba(255,152,0,0.1) 0%, transparent 60%);
             transform: rotate(25deg);
-            transition: all 0.5s;
+            transition: all 0.45s;
             opacity: 0;
         }
         
         .tool-card:hover::after {
             opacity: 1;
-            transform: rotate(25deg) translate(30%, 30%);
+            transform: rotate(25deg) translate(25%, 25%);
         }
         
         .tool-icon {
-            width: 56px;
-            height: 56px;
-            background: rgba(255,152,0,0.13);
-            border-radius: 15px;
+            width: 52px;
+            height: 52px;
+            background: var(--accent-soft);
+            border-radius: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -356,18 +422,30 @@
         }
         
         .tool-icon i {
-            font-size: 1.85rem;
+            font-size: 1.7rem;
             color: var(--accent);
+        }
+        
+        .tool-card h4 {
+            font-size: 1.08rem;
+            margin-bottom: 0.4rem;
+            line-height: 1.35;
+        }
+        
+        .tool-card p {
+            color: #999;
+            font-size: 0.88rem;
+            line-height: 1.55;
         }
         
         .category-pill {
             display: inline-block;
-            font-size: 0.72rem;
-            padding: 0.22rem 0.85rem;
+            font-size: 0.7rem;
+            padding: 0.2rem 0.75rem;
             border-radius: 50px;
-            background: rgba(255,152,0,0.15);
+            background: var(--accent-soft);
             color: var(--accent);
-            margin-top: 0.85rem;
+            margin-top: 0.9rem;
             font-weight: 500;
         }
         
@@ -375,94 +453,96 @@
         .filter-container {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.6rem;
+            gap: 0.5rem;
             justify-content: center;
-            margin-bottom: 1.8rem;
+            margin-bottom: 1.7rem;
         }
         
         .filter-btn {
-            padding: 0.55rem 1.35rem;
+            padding: 0.5rem 1.25rem;
             border-radius: 9999px;
             border: 1px solid var(--border);
             background: var(--bg2);
             color: var(--text2);
-            font-size: 0.92rem;
+            font-size: 0.9rem;
             cursor: pointer;
             transition: all 0.2s ease;
             white-space: nowrap;
+            font-family: inherit;
         }
         
         .filter-btn.active,
         .filter-btn:hover {
             background: var(--accent);
-            color: #1a1a1a;
+            color: #121212;
             border-color: var(--accent);
-            transform: translateY(-1px);
         }
         
         /* Search */
         .search-wrapper {
             position: relative;
-            max-width: 460px;
-            margin: 0 auto 1.6rem;
+            max-width: 440px;
+            margin: 0 auto 1.5rem;
         }
         
         .search-wrapper input {
             width: 100%;
-            padding: 1rem 1rem 1rem 3.2rem;
+            padding: 0.95rem 1rem 0.95rem 3rem;
             background: var(--bg2);
             border: 1px solid var(--border);
             border-radius: 9999px;
             color: var(--text);
-            font-size: 1.05rem;
+            font-size: 1rem;
             outline: none;
-            transition: all 0.3s;
+            transition: all 0.25s;
+            font-family: inherit;
         }
         
         .search-wrapper input:focus {
             border-color: var(--accent);
-            box-shadow: 0 0 0 4px rgba(255,152,0,0.15);
+            box-shadow: 0 0 0 4px rgba(255,152,0,0.12);
         }
         
         .search-wrapper i {
             position: absolute;
-            right: 1.25rem;
+            right: 1.2rem;
             top: 50%;
             transform: translateY(-50%);
             color: var(--text2);
         }
         
-        /* Download cards */
+        /* Download */
         .download-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
-            gap: 1.8rem;
-            max-width: 980px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.6rem;
+            max-width: 920px;
             margin: 0 auto;
         }
         
         .download-card {
-            padding: 2.4rem 2rem;
+            padding: 2.3rem 1.9rem;
             text-align: center;
             transition: transform 0.3s, box-shadow 0.3s;
         }
         
         .download-card:hover {
-            transform: translateY(-8px);
+            transform: translateY(-6px);
+            box-shadow: var(--shadow);
         }
         
-        /* Responsive */
+        /* ========== RESPONSIVE ========== */
         @media (max-width: 900px) {
             .nav-links { display: none; }
-            .hamburger { display: block; }
+            .hamburger { display: flex; align-items: center; justify-content: center; }
             
             .tool-grid {
-                grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             }
             
             .hero {
                 min-height: 100dvh;
-                padding: 4rem 1rem 3rem;
+                padding: 5rem 1rem 3.5rem;
             }
             
             .stats { gap: 2rem; }
@@ -473,41 +553,43 @@
                 grid-template-columns: 1fr;
             }
             
-            .hero h1 { font-size: 2.45rem; }
+            .hero h1 { font-size: 2.35rem; }
             
             .btn {
-                padding: 0.9rem 1.8rem;
-                font-size: 1rem;
+                padding: 0.85rem 1.7rem;
+                font-size: 0.97rem;
             }
             
             .filter-container {
                 flex-wrap: nowrap;
                 overflow-x: auto;
-                padding-bottom: 0.5rem;
+                padding-bottom: 0.6rem;
                 justify-content: flex-start;
+                -webkit-overflow-scrolling: touch;
             }
             
-            .filter-btn {
-                flex-shrink: 0;
-            }
+            .filter-btn { flex-shrink: 0; }
+            
+            .stats { gap: 1.6rem; }
+            .stat-number { font-size: 2.1rem; }
         }
         
-        .mobile-menu {
-            display: none;
-            background: #222;
-            padding: 1.2rem 1.5rem;
-            border-top: 1px solid var(--border);
+        /* Footer */
+        footer {
+            background: #0d0d0d;
+            padding: 1.8rem 1rem;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #666;
+            border-top: 1px solid #222;
+            line-height: 1.9;
         }
-        
-        .mobile-menu a {
-            display: block;
-            padding: 0.75rem 0;
-            color: var(--text);
+        footer a {
+            color: var(--accent);
             text-decoration: none;
-            border-bottom: 1px solid #333;
+            transition: opacity 0.2s;
         }
-        
-        .mobile-menu a:last-child { border-bottom: none; }
+        footer a:hover { opacity: 0.85; }
     </style>
 </head>
 <body>
@@ -515,47 +597,42 @@
     <header>
         <div class="container">
             <div class="nav-content">
-                <!-- Logo -->
                 <div class="logo" onclick="showPage('home')">
                     <div class="logo-icon">
                         <img src="https://s8.uupload.ir/files/photo_2026-02-21_20-36-28_0y50.jpg" alt="لوگوی جعبه ابزار ریاضیات" loading="lazy" />
                     </div>
-                    <div>
-                        <div style="font-size: 1.38rem; font-weight: 700; line-height: 1;">جعبه ابزار ریاضیات</div>
-                    </div>
+                    <div class="logo-text">جعبه ابزار ریاضیات</div>
                 </div>
                 
-                <!-- Desktop Navigation -->
                 <nav class="nav-links">
-                    <a href="#" onclick="showPage('home'); return false;" class="nav-link active">خانه</a>
-                    <a href="#" onclick="showPage('features'); return false;" class="nav-link">امکانات</a>
-                    <a href="#" onclick="showPage('download'); return false;" class="nav-link">دانلود</a>
-                    <a href="#" onclick="showPage('guide'); return false;" class="nav-link">راهنما</a>
-                    <a href="#" onclick="showPage('about'); return false;" class="nav-link">درباره ما</a>
-                    <a href="#" onclick="showPage('contact'); return false;" class="nav-link">ارتباط با ما</a>
+                    <a href="#" onclick="showPage('home'); return false;" class="nav-link active" data-page="home">خانه</a>
+                    <a href="#" onclick="showPage('features'); return false;" class="nav-link" data-page="features">امکانات</a>
+                    <a href="#" onclick="showPage('download'); return false;" class="nav-link" data-page="download">دانلود</a>
+                    <a href="#" onclick="showPage('guide'); return false;" class="nav-link" data-page="guide">راهنما</a>
+                    <a href="#" onclick="showPage('about'); return false;" class="nav-link" data-page="about">درباره ما</a>
+                    <a href="#" onclick="showPage('contact'); return false;" class="nav-link" data-page="contact">ارتباط با ما</a>
                     
-                    <button onclick="showPage('download')" class="btn btn-primary" style="padding: 0.65rem 1.6rem; font-size: 0.95rem;">
+                    <button onclick="showPage('download')" class="btn btn-primary" style="padding: 0.6rem 1.5rem; font-size: 0.93rem;">
                         <i class="fas fa-download"></i>
                         <span>دانلود</span>
                     </button>
                 </nav>
                 
-                <!-- Hamburger with animation -->
-                <button class="hamburger" onclick="toggleMobileMenu()" id="hamburger-btn">
-                    <i class="fas fa-bars" id="hamburger-icon" style="transition: transform 0.3s ease;"></i>
+                <button class="hamburger" onclick="toggleMobileMenu()" id="hamburger-btn" aria-label="منو">
+                    <i class="fas fa-bars" id="hamburger-icon"></i>
                 </button>
             </div>
         </div>
         
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="mobile-menu">
-            <a href="#" onclick="showPage('home'); toggleMobileMenu(); return false;">خانه</a>
-            <a href="#" onclick="showPage('features'); toggleMobileMenu(); return false;">امکانات</a>
-            <a href="#" onclick="showPage('download'); toggleMobileMenu(); return false;">دانلود</a>
-            <a href="#" onclick="showPage('guide'); toggleMobileMenu(); return false;">راهنما</a>
-            <a href="#" onclick="showPage('about'); toggleMobileMenu(); return false;">درباره ما</a>
-            <a href="#" onclick="showPage('contact'); toggleMobileMenu(); return false;">ارتباط با ما</a>
-            <button onclick="showPage('download'); toggleMobileMenu()" class="btn btn-primary" style="width:100%; margin-top:1rem; justify-content:center;">
+            <a href="#" onclick="showPage('home'); return false;">خانه</a>
+            <a href="#" onclick="showPage('features'); return false;">امکانات</a>
+            <a href="#" onclick="showPage('download'); return false;">دانلود</a>
+            <a href="#" onclick="showPage('guide'); return false;">راهنما</a>
+            <a href="#" onclick="showPage('about'); return false;">درباره ما</a>
+            <a href="#" onclick="showPage('contact'); return false;">ارتباط با ما</a>
+            <button onclick="showPage('download')" class="btn btn-primary">
                 <i class="fas fa-download"></i> دانلود برنامه
             </button>
         </div>
@@ -564,19 +641,12 @@
     <!-- ==================== HOME ==================== -->
     <div id="page-home" class="page active">
         <section class="hero">
-            <!-- Floating math symbols -->
-            <i class="math-float fa-solid fa-infinity" style="top: 18%; left: 7%; animation-delay: 0s;"></i>
-            <i class="math-float fa-solid fa-square-root-alt" style="top: 28%; right: 9%; animation-delay: 1.8s; font-size: 3.2rem;"></i>
-            <i class="math-float fa-solid fa-pi" style="bottom: 22%; left: 12%; animation-delay: 3.5s;"></i>
-            <i class="math-float fa-solid fa-superscript" style="top: 55%; right: 15%; animation-delay: 5s; font-size: 2.8rem;"></i>
+            <i class="math-float fa-solid fa-infinity" style="top: 16%; left: 6%; animation-delay: 0s;"></i>
+            <i class="math-float fa-solid fa-square-root-variable" style="top: 26%; right: 8%; animation-delay: 1.6s; font-size: 3rem;"></i>
+            <i class="math-float fa-solid fa-pi" style="bottom: 20%; left: 11%; animation-delay: 3.2s;"></i>
+            <i class="math-float fa-solid fa-superscript" style="top: 52%; right: 14%; animation-delay: 4.8s; font-size: 2.6rem;"></i>
             
             <div class="hero-content container">
-                <!-- <div style="margin-bottom: 1.1rem;">
-                    <span style="background: rgba(255,152,0,0.15); color: var(--accent); padding: 0.35rem 1.15rem; border-radius: 9999px; font-size: 0.85rem; font-weight: 600;">
-                        نسخه ۱.۷.۲۲ • به‌روز شده 1405/3/7
-                    </span>
-                </div> -->
-                
                 <h1>
                     قدرتمندترین<br>
                     <span class="gradient-text">جعبه ابزار ریاضیات</span><br>
@@ -598,37 +668,35 @@
                     </button>
                 </div>
                 
-                <!-- Animated Stats -->
                 <div class="stats">
                     <div class="stat">
-                        <div class="stat-number" id="stat-tools">32</div>
+                        <div class="stat-number" id="stat-tools">۳۲+</div>
                         <div class="stat-label">ابزار تخصصی</div>
                     </div>
                     <div class="stat">
-                        <div class="stat-number" id="stat-categories">7</div>
+                        <div class="stat-number" id="stat-categories">۷</div>
                         <div class="stat-label">دسته‌بندی</div>
                     </div>
                     <div class="stat">
-                        <div class="stat-number" id="stat-users">۱۰۰٪</div>
+                        <div class="stat-number">۱۰۰٪</div>
                         <div class="stat-label">رایگان و آفلاین</div>
                     </div>
                 </div>
             </div>
         </section>
         
-        <!-- Quote Section (from home, now visible on home) -->
-        <section style="padding: 3.5rem 1.25rem; max-width: 860px; margin: 0 auto;">
-            <div class="glass" style="padding: 2.4rem 2.8rem; border-radius: 22px; border-right: 6px solid var(--accent);">
-                <p style="font-size: 1.22rem; font-style: italic; color: #ddd; line-height: 1.85;">
+        <section style="padding: 3.2rem 1.25rem; max-width: 840px; margin: 0 auto;">
+            <div class="glass" style="padding: 2.2rem 2.5rem; border-radius: 20px; border-right: 5px solid var(--accent);">
+                <p style="font-size: 1.15rem; font-style: italic; color: #ddd; line-height: 1.85;">
                     «بدون علاقه داشتن به ریاضی، ممکن است آن را سرد و بیهوده بیابید؛ اما ریاضیات، زیباییِ خود را تنها به افراد صبور نشان می‌دهد.»
                 </p>
-                <div style="margin-top: 1.4rem; display: flex; align-items: center; gap: 12px;">
-                    <div style="width: 38px; height: 38px; background: linear-gradient(135deg, var(--accent), var(--accent2)); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
-                        <i class="fas fa-user-graduate" style="color: #1a1a1a; font-size: 1.1rem;"></i>
+                <div style="margin-top: 1.3rem; display: flex; align-items: center; gap: 12px;">
+                    <div style="width: 38px; height: 38px; background: linear-gradient(135deg, var(--accent), var(--accent2)); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                        <i class="fas fa-user-graduate" style="color: #121212; font-size: 1.05rem;"></i>
                     </div>
                     <div>
                         <div style="font-weight: 600;">مریم میرزاخانی</div>
-                        <div style="font-size: 0.85rem; color: var(--text2);">اولین زن برنده مدال فیلدز</div>
+                        <div style="font-size: 0.84rem; color: var(--text2);">اولین زن برنده مدال فیلدز</div>
                     </div>
                 </div>
             </div>
@@ -637,19 +705,17 @@
 
     <!-- ==================== FEATURES ==================== -->
     <div id="page-features" class="page">
-        <div class="container" style="padding: 3rem 1.25rem 5rem;">
-            <div style="text-align: center; margin-bottom: 2.5rem;">
+        <div class="container" style="padding: 2.8rem 1.25rem 4.5rem;">
+            <div style="text-align: center; margin-bottom: 2.2rem;">
                 <h2 class="section-title">تمام امکانات برنامه</h2>
-                <p style="color: var(--text2); font-size: 1.15rem;">بیش از ۳۲ ابزار تخصصی در ۷ دسته‌بندی حرفه‌ای</p>
+                <p class="section-subtitle">بیش از ۳۲ ابزار تخصصی در ۷ دسته‌بندی حرفه‌ای</p>
             </div>
             
-            <!-- Search -->
             <div class="search-wrapper">
                 <i class="fas fa-search"></i>
                 <input id="search-input" type="text" placeholder="جستجو در ابزارها (مثلاً غربال یا فیبوناچی)..." oninput="filterTools()">
             </div>
             
-            <!-- Category Filters -->
             <div class="filter-container" id="category-filters">
                 <button class="filter-btn active" onclick="filterByCategory('all', this)">همه</button>
                 <button class="filter-btn" onclick="filterByCategory('number-theory', this)">نظریه اعداد</button>
@@ -662,57 +728,54 @@
                 <button class="filter-btn" onclick="filterByCategory('education', this)">آموزشی</button>
             </div>
             
-            <!-- Tools Grid -->
             <div id="tools-grid" class="tool-grid"></div>
         </div>
     </div>
 
     <!-- ==================== DOWNLOAD ==================== -->
     <div id="page-download" class="page">
-        <div class="container" style="padding: 3.5rem 1.25rem 5rem; max-width: 1050px;">
-            <div style="text-align: center; margin-bottom: 2.8rem;">
+        <div class="container" style="padding: 3.2rem 1.25rem 4.5rem; max-width: 1000px;">
+            <div style="text-align: center; margin-bottom: 2.5rem;">
                 <h2 class="section-title">دانلود برنامه</h2>
-                <p style="color: var(--text2); font-size: 1.2rem;">دو نسخه اختصاصی برای ویندوز معمولی و تبلت‌های Surface</p>
+                <p class="section-subtitle">دو نسخه اختصاصی برای ویندوز معمولی و تبلت‌های Surface</p>
             </div>
             
             <div class="download-grid">
-                <!-- Windows -->
-                <div class="glass download-card card-hover">
-                    <div style="width: 78px; height: 78px; background: linear-gradient(135deg, #0078d7, #00a2ff); border-radius: 18px; margin: 0 auto 1.4rem; display: flex; align-items: center; justify-content: center;">
-                        <i class="fab fa-windows" style="font-size: 40px; color: white;"></i>
+                <div class="glass download-card">
+                    <div style="width: 74px; height: 74px; background: linear-gradient(135deg, #0078d7, #00a2ff); border-radius: 18px; margin: 0 auto 1.3rem; display: flex; align-items: center; justify-content: center;">
+                        <i class="fab fa-windows" style="font-size: 36px; color: white;"></i>
                     </div>
-                    <h3 style="font-size: 1.55rem; margin-bottom: 0.4rem;">نسخه ویندوز / لپ‌تاپ</h3>
-                    <p style="color: var(--text2); margin-bottom: 1.6rem;">سازگار با ویندوز ۷ تا ۱۱</p>
+                    <h3 style="font-size: 1.45rem; margin-bottom: 0.35rem;">نسخه ویندوز / لپ‌تاپ</h3>
+                    <p style="color: var(--text2); margin-bottom: 1.5rem; font-size: 0.95rem;">سازگار با ویندوز ۷ تا ۱۱</p>
                     
-                    <a href="https://syragpt.ir/jaryan/down/10d63d566c5fac791753a055.php" target="_blank" class="btn btn-primary" style="width: 100%; justify-content: center; font-size: 1.08rem;">
+                    <a href="https://syragpt.ir/jaryan/down/10d63d566c5fac791753a055.php" target="_blank" class="btn btn-primary" style="width: 100%; justify-content: center;">
                         <i class="fas fa-download"></i> دانلود نسخه ویندوز
                     </a>
-                    <div style="margin-top: 1.1rem; font-size: 0.88rem; color: #888;">
-                        <i class="fas fa-check-circle" style="color: #4CAF50;"></i> فایل اجرایی • بدون نیاز به نصب
+                    <div style="margin-top: 1rem; font-size: 0.85rem; color: #888;">
+                        <i class="fas fa-check-circle" style="color: var(--success);"></i> فایل اجرایی • بدون نیاز به نصب
                     </div>
                 </div>
                 
-                <!-- Surface -->
-                <div class="glass download-card card-hover">
-                    <div style="width: 78px; height: 78px; background: linear-gradient(135deg, #9c27b0, #e040fb); border-radius: 18px; margin: 0 auto 1.4rem; display: flex; align-items: center; justify-content: center;">
-                        <i class="fas fa-tablet-alt" style="font-size: 40px; color: white;"></i>
+                <div class="glass download-card">
+                    <div style="width: 74px; height: 74px; background: linear-gradient(135deg, #9c27b0, #e040fb); border-radius: 18px; margin: 0 auto 1.3rem; display: flex; align-items: center; justify-content: center;">
+                        <i class="fas fa-tablet-alt" style="font-size: 36px; color: white;"></i>
                     </div>
-                    <h3 style="font-size: 1.55rem; margin-bottom: 0.4rem;">نسخه Surface</h3>
-                    <p style="color: var(--text2); margin-bottom: 1.6rem;">بهینه‌سازی شده برای تبلت‌های Surface</p>
+                    <h3 style="font-size: 1.45rem; margin-bottom: 0.35rem;">نسخه Surface</h3>
+                    <p style="color: var(--text2); margin-bottom: 1.5rem; font-size: 0.95rem;">بهینه‌سازی شده برای تبلت‌های Surface</p>
                     
-                    <a href="https://syragpt.ir/jaryan/down/b9c00db9c6db09ba30fe3546.php" target="_blank" class="btn btn-primary" style="width: 100%; justify-content: center; font-size: 1.08rem; background: linear-gradient(135deg, #9c27b0, #e040fb);">
+                    <a href="https://syragpt.ir/jaryan/down/b9c00db9c6db09ba30fe3546.php" target="_blank" class="btn btn-primary" style="width: 100%; justify-content: center; background: linear-gradient(135deg, #9c27b0, #e040fb);">
                         <i class="fas fa-download"></i> دانلود نسخه Surface
                     </a>
-                    <div style="margin-top: 1.1rem; font-size: 0.88rem; color: #888;">
-                        <i class="fas fa-check-circle" style="color: #4CAF50;"></i> بهینه برای لمس و قلم
+                    <div style="margin-top: 1rem; font-size: 0.85rem; color: #888;">
+                        <i class="fas fa-check-circle" style="color: var(--success);"></i> بهینه برای لمس و قلم
                     </div>
                 </div>
             </div>
             
-            <div style="max-width: 720px; margin: 2.8rem auto 0; background: #222; padding: 1.7rem 2rem; border-radius: 16px; border: 1px solid var(--border);">
+            <div style="max-width: 700px; margin: 2.6rem auto 0; background: #1a1a1a; padding: 1.5rem 1.8rem; border-radius: 14px; border: 1px solid var(--border);">
                 <div style="display: flex; gap: 1rem; align-items: flex-start;">
-                    <i class="fas fa-shield-alt" style="color: var(--accent); font-size: 1.7rem; margin-top: 3px;"></i>
-                    <div style="font-size: 0.95rem; color: #ccc; line-height: 1.85;">
+                    <i class="fas fa-shield-alt" style="color: var(--accent); font-size: 1.5rem; margin-top: 2px; flex-shrink: 0;"></i>
+                    <div style="font-size: 0.92rem; color: #bbb; line-height: 1.8;">
                         <strong>نکات مهم:</strong> حجم فایل حدود ۷۰ مگابایت • در اولین اجرا ممکن است کمی زمان ببرد • برای عملکرد بهتر به صورت Run as Administrator اجرا کنید.
                     </div>
                 </div>
@@ -722,31 +785,31 @@
 
     <!-- ==================== GUIDE ==================== -->
     <div id="page-guide" class="page">
-        <div class="container" style="padding: 3rem 1.25rem 5rem; max-width: 1050px;">
-            <div style="text-align: center; margin-bottom: 2.5rem;">
+        <div class="container" style="padding: 2.8rem 1.25rem 4.5rem; max-width: 1000px;">
+            <div style="text-align: center; margin-bottom: 2.3rem;">
                 <h2 class="section-title">راهنمای استفاده و مستندات</h2>
             </div>
             
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.7rem;">
-                <div class="glass" style="padding: 2.1rem 2rem; border-radius: 18px;">
-                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 1.3rem;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 1.5rem;">
+                <div class="glass" style="padding: 1.9rem 1.8rem; border-radius: 16px;">
+                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 1.2rem;">
                         <i class="fas fa-microchip fa-2x" style="color: var(--accent);"></i>
-                        <h3 style="font-size: 1.4rem;">نیازمندی‌های سیستم</h3>
+                        <h3 style="font-size: 1.3rem;">نیازمندی‌های سیستم</h3>
                     </div>
-                    <ul style="list-style: none; line-height: 2.05; padding-right: 0.3rem;">
-                        <li><i class="fas fa-check" style="color:#4CAF50; margin-left:8px;"></i> ویندوز ۷، ۸، ۱۰ و ۱۱</li>
-                        <li><i class="fas fa-check" style="color:#4CAF50; margin-left:8px;"></i> حداقل ۴ گیگابایت رم</li>
-                        <li><i class="fas fa-check" style="color:#4CAF50; margin-left:8px;"></i> ۵۰۰ مگابایت فضای خالی</li>
-                        <li><i class="fas fa-check" style="color:#4CAF50; margin-left:8px;"></i> بدون نیاز به نصب کتابخانه جداگانه</li>
+                    <ul style="list-style: none; line-height: 2; padding-right: 0.2rem;">
+                        <li><i class="fas fa-check" style="color:var(--success); margin-left:8px;"></i> ویندوز ۷، ۸، ۱۰ و ۱۱</li>
+                        <li><i class="fas fa-check" style="color:var(--success); margin-left:8px;"></i> حداقل ۴ گیگابایت رم</li>
+                        <li><i class="fas fa-check" style="color:var(--success); margin-left:8px;"></i> ۵۰۰ مگابایت فضای خالی</li>
+                        <li><i class="fas fa-check" style="color:var(--success); margin-left:8px;"></i> بدون نیاز به نصب کتابخانه جداگانه</li>
                     </ul>
                 </div>
                 
-                <div class="glass" style="padding: 2.1rem 2rem; border-radius: 18px;">
-                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 1.3rem;">
+                <div class="glass" style="padding: 1.9rem 1.8rem; border-radius: 16px;">
+                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 1.2rem;">
                         <i class="fas fa-download fa-2x" style="color: var(--accent);"></i>
-                        <h3 style="font-size: 1.4rem;">راهنمای نصب و اجرا</h3>
+                        <h3 style="font-size: 1.3rem;">راهنمای نصب و اجرا</h3>
                     </div>
-                    <ol style="padding-right: 1.1rem; line-height: 2.05;">
+                    <ol style="padding-right: 1.1rem; line-height: 2;">
                         <li>فایل <strong>Mathematics Toolbox.exe</strong> را دانلود کنید</li>
                         <li>فایل را اجرا کنید (ترجیحاً Run as Administrator)</li>
                         <li>در صورت نیاز اجازه دسترسی به فایروال را بدهید</li>
@@ -755,11 +818,11 @@
                 </div>
             </div>
             
-            <div class="glass" style="margin-top: 2rem; padding: 2.2rem 2.4rem; border-radius: 18px;">
-                <h3 style="margin-bottom: 1.1rem; display:flex; align-items:center; gap:10px;">
+            <div class="glass" style="margin-top: 1.8rem; padding: 2rem 2.2rem; border-radius: 16px;">
+                <h3 style="margin-bottom: 1rem; display:flex; align-items:center; gap:10px;">
                     <i class="fas fa-play-circle" style="color: var(--accent);"></i> نحوه استفاده
                 </h3>
-                <p style="color: #ccc; line-height: 1.9;">
+                <p style="color: #bbb; line-height: 1.85;">
                     پس از اجرای برنامه، منوی اصلی با بیش از ۳۲ ابزار تخصصی نمایش داده می‌شود. 
                     روی هر ابزار کلیک کنید تا پنجره اختصاصی آن باز شود. هر ابزار دارای ورودی‌های ساده و نمایش نتیجه زیبا است.
                 </p>
@@ -769,137 +832,122 @@
 
     <!-- ==================== ABOUT ==================== -->
     <div id="page-about" class="page">
-        <div class="container" style="padding: 3rem 1.25rem 5rem; max-width: 920px;">
-            <div style="text-align: center; margin-bottom: 2.5rem;">
+        <div class="container" style="padding: 2.8rem 1.25rem 4.5rem; max-width: 880px;">
+            <div style="text-align: center; margin-bottom: 2.3rem;">
                 <h2 class="section-title">درباره برنامه‌نویس و پروژه</h2>
             </div>
             
-            <div class="glass" style="padding: 2.8rem 2.5rem; border-radius: 22px; text-align: center; max-width: 780px; margin: 0 auto;">
-                <div style="width: 105px; height: 105px; background: linear-gradient(135deg, var(--accent), var(--accent2)); border-radius: 50%; margin: 0 auto 1.6rem; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 30px rgba(255,152,0,0.3);">
-                    <i class="fas fa-user-graduate" style="font-size: 48px; color: #1a1a1a;"></i>
+            <div class="glass" style="padding: 2.6rem 2.3rem; border-radius: 20px; text-align: center; max-width: 720px; margin: 0 auto;">
+                <div style="width: 100px; height: 100px; background: linear-gradient(135deg, var(--accent), var(--accent2)); border-radius: 50%; margin: 0 auto 1.5rem; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 28px rgba(255,152,0,0.28);">
+                    <i class="fas fa-user-graduate" style="font-size: 44px; color: #121212;"></i>
                 </div>
                 
-                <h3 style="font-size: 1.85rem; margin-bottom: 0.35rem;">صدرا حاتمی</h3>
-                <p style="color: var(--accent); font-weight: 600; margin-bottom: 1.4rem;">برنامه‌نویس و توسعه‌دهنده جعبه ابزار ریاضیات</p>
+                <h3 style="font-size: 1.75rem; margin-bottom: 0.3rem;">صدرا حاتمی</h3>
+                <p style="color: var(--accent); font-weight: 600; margin-bottom: 1.3rem;">برنامه‌نویس و توسعه‌دهنده جعبه ابزار ریاضیات</p>
                 
-                <p style="max-width: 620px; margin: 0 auto 2rem; color: #ccc; line-height: 1.85;">
+                <p style="max-width: 580px; margin: 0 auto 1.9rem; color: #bbb; line-height: 1.85;">
                     این پروژه با هدف ارائه یک ابزار جامع، رایگان و قدرتمند ریاضی به زبان فارسی برای دانش‌آموزان، دانشجویان و علاقه‌مندان به ریاضیات طراحی و توسعه یافته است.
                 </p>
                 
-                <div style="display: flex; flex-wrap: wrap; gap: 0.9rem; justify-content: center;">
-                    <a href="https://github.com/sadra-hatami/" target="_blank" class="btn btn-outline" style="padding: 0.7rem 1.5rem; font-size: 0.95rem;">
+                <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; justify-content: center;">
+                    <a href="https://github.com/sadra-hatami/" target="_blank" class="btn btn-outline" style="padding: 0.65rem 1.4rem; font-size: 0.92rem;">
                         <i class="fab fa-github"></i> گیت‌هاب
                     </a>
-                    <!-- <a href="mailto:mathematics.toolbox.sadra@gmail.com" class="btn btn-outline" style="padding: 0.7rem 1.5rem; font-size: 0.95rem;">
-                        <i class="fas fa-envelope"></i> ایمیل پشتیبانی
-                    </a> -->
                 </div>
             </div>
-            
-            <!-- <div style="text-align: center; margin-top: 3.5rem; color: #777; font-size: 0.9rem;">
-                وبسایت رسمی: <a href="https://sadra-hatami.github.io/Mathematics_Toolbox/" target="_blank" style="color: var(--accent);">sadra-hatami.github.io</a><br>
-                کانال تلگرام: <a href="https://t.me/Mathematics_Toolbox" target="_blank" style="color: var(--accent);">@Mathematics_Toolbox</a>
-            </div> -->
         </div>
     </div>
 
-    <!-- ==================== CONTACT PAGE ==================== -->
+    <!-- ==================== CONTACT ==================== -->
     <div id="page-contact" class="page">
-        <div class="container" style="padding: 3rem 1.25rem 5rem; max-width: 1100px;">
-            <div style="text-align: center; margin-bottom: 2.8rem;">
+        <div class="container" style="padding: 2.8rem 1.25rem 4.5rem; max-width: 1080px;">
+            <div style="text-align: center; margin-bottom: 2.5rem;">
                 <h2 class="section-title">ارتباط با ما</h2>
-                <p style="color: var(--text2); font-size: 1.15rem;">ما همیشه آماده شنیدن نظرات، پیشنهادها و سوالات شما هستیم</p>
+                <p class="section-subtitle">ما همیشه آماده شنیدن نظرات، پیشنهادها و سوالات شما هستیم</p>
             </div>
             
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.6rem;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.4rem;">
                 
-                <!-- Email Support -->
-                <div class="glass card-hover" style="padding: 2rem; border-radius: 18px; text-align: center;">
-                    <div style="width: 70px; height: 70px; background: rgba(255,152,0,0.15); border-radius: 50%; margin: 0 auto 1.3rem; display: flex; align-items: center; justify-content: center;">
-                        <i class="fas fa-envelope fa-2x" style="color: var(--accent);"></i>
+                <div class="glass" style="padding: 1.8rem; border-radius: 16px; text-align: center;">
+                    <div style="width: 64px; height: 64px; background: var(--accent-soft); border-radius: 50%; margin: 0 auto 1.2rem; display: flex; align-items: center; justify-content: center;">
+                        <i class="fas fa-envelope fa-xl" style="color: var(--accent);"></i>
                     </div>
-                    <h3 style="font-size: 1.35rem; margin-bottom: 0.6rem;">ایمیل پشتیبانی</h3>
-                    <p style="color: #aaa; margin-bottom: 1.2rem; font-size: 0.95rem;">پاسخگویی سریع به سوالات و مشکلات فنی</p>
-                    <a href="mailto:mathematics.toolbox.sadra@gmail.com" class="btn btn-outline" style="padding: 0.7rem 1.8rem; font-size: 0.95rem; width: 100%; justify-content: center;">
+                    <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">ایمیل پشتیبانی</h3>
+                    <p style="color: #999; margin-bottom: 1.1rem; font-size: 0.9rem;">پاسخگویی سریع به سوالات و مشکلات فنی</p>
+                    <a href="mailto:mathematics.toolbox.sadra@gmail.com" class="btn btn-outline" style="padding: 0.6rem 1.4rem; font-size: 0.88rem; width: 100%; justify-content: center;">
                         mathematics.toolbox.sadra@gmail.com
                     </a>
                 </div>
                 
-                <!-- Website -->
-                <div class="glass card-hover" style="padding: 2rem; border-radius: 18px; text-align: center;">
-                    <div style="width: 70px; height: 70px; background: rgba(255,152,0,0.15); border-radius: 50%; margin: 0 auto 1.3rem; display: flex; align-items: center; justify-content: center;">
-                        <i class="fas fa-globe fa-2x" style="color: var(--accent);"></i>
+                <div class="glass" style="padding: 1.8rem; border-radius: 16px; text-align: center;">
+                    <div style="width: 64px; height: 64px; background: var(--accent-soft); border-radius: 50%; margin: 0 auto 1.2rem; display: flex; align-items: center; justify-content: center;">
+                        <i class="fas fa-globe fa-xl" style="color: var(--accent);"></i>
                     </div>
-                    <h3 style="font-size: 1.35rem; margin-bottom: 0.6rem;">وبسایت رسمی</h3>
-                    <p style="color: #aaa; margin-bottom: 1.2rem; font-size: 0.95rem;">دانلود آخرین نسخه و مشاهده مستندات</p>
-                    <a href="https://sadra-hatami.github.io/Mathematics_Toolbox/" target="_blank" class="btn btn-outline" style="padding: 0.7rem 1.8rem; font-size: 0.95rem; width: 100%; justify-content: center;">
+                    <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">وبسایت رسمی</h3>
+                    <p style="color: #999; margin-bottom: 1.1rem; font-size: 0.9rem;">دانلود آخرین نسخه و مشاهده مستندات</p>
+                    <a href="https://sadra-hatami.github.io/Mathematics-Toolbox/" target="_blank" class="btn btn-outline" style="padding: 0.6rem 1.4rem; font-size: 0.88rem; width: 100%; justify-content: center;">
                         sadra-hatami.github.io
                     </a>
                 </div>
                 
-                <!-- Anonymous Chat -->
-                <div class="glass card-hover" style="padding: 2rem; border-radius: 18px; text-align: center;">
-                    <div style="width: 70px; height: 70px; background: rgba(255,152,0,0.15); border-radius: 50%; margin: 0 auto 1.3rem; display: flex; align-items: center; justify-content: center;">
-                        <i class="fas fa-comments fa-2x" style="color: var(--accent);"></i>
+                <div class="glass" style="padding: 1.8rem; border-radius: 16px; text-align: center;">
+                    <div style="width: 64px; height: 64px; background: var(--accent-soft); border-radius: 50%; margin: 0 auto 1.2rem; display: flex; align-items: center; justify-content: center;">
+                        <i class="fas fa-comments fa-xl" style="color: var(--accent);"></i>
                     </div>
-                    <h3 style="font-size: 1.35rem; margin-bottom: 0.6rem;">چت ناشناس</h3>
-                    <p style="color: #aaa; margin-bottom: 1.2rem; font-size: 0.95rem;">ارسال پیام بدون افشای هویت</p>
-                    <a href="https://abzarek.ir/service-p/msg/3429526" target="_blank" class="btn btn-outline" style="padding: 0.7rem 1.8rem; font-size: 0.95rem; width: 100%; justify-content: center;">
+                    <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">چت ناشناس</h3>
+                    <p style="color: #999; margin-bottom: 1.1rem; font-size: 0.9rem;">ارسال پیام بدون افشای هویت</p>
+                    <a href="https://abzarek.ir/service-p/msg/3429526" target="_blank" class="btn btn-outline" style="padding: 0.6rem 1.4rem; font-size: 0.88rem; width: 100%; justify-content: center;">
                         ارسال پیام ناشناس
                     </a>
                 </div>
                 
-                <!-- Telegram Channel -->
-                <div class="glass card-hover" style="padding: 2rem; border-radius: 18px; text-align: center;">
-                    <div style="width: 70px; height: 70px; background: rgba(255,152,0,0.15); border-radius: 50%; margin: 0 auto 1.3rem; display: flex; align-items: center; justify-content: center;">
-                        <i class="fab fa-telegram-plane fa-2x" style="color: #29b6f6;"></i>
+                <div class="glass" style="padding: 1.8rem; border-radius: 16px; text-align: center;">
+                    <div style="width: 64px; height: 64px; background: var(--accent-soft); border-radius: 50%; margin: 0 auto 1.2rem; display: flex; align-items: center; justify-content: center;">
+                        <i class="fab fa-telegram-plane fa-xl" style="color: #29b6f6;"></i>
                     </div>
-                    <h3 style="font-size: 1.35rem; margin-bottom: 0.6rem;">کانال تلگرام</h3>
-                    <p style="color: #aaa; margin-bottom: 1.2rem; font-size: 0.95rem;">آپدیت‌ها، اخبار و پشتیبانی در تلگرام، روبیکا، ایتا، بله و سروش پلاس</p>
-                    <a href="https://t.me/Mathematics_Toolbox" target="_blank" class="btn btn-outline" style="padding: 0.7rem 1.8rem; font-size: 0.95rem; width: 100%; justify-content: center;">
+                    <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">کانال تلگرام</h3>
+                    <p style="color: #999; margin-bottom: 1.1rem; font-size: 0.9rem;">آپدیت‌ها و پشتیبانی در تلگرام و سایر پیام‌رسان‌ها</p>
+                    <a href="https://t.me/Mathematics_Toolbox" target="_blank" class="btn btn-outline" style="padding: 0.6rem 1.4rem; font-size: 0.88rem; width: 100%; justify-content: center;">
                         @Mathematics_Toolbox
                     </a>
                 </div>
                 
-                <!-- GitHub -->
-                <div class="glass card-hover" style="padding: 2rem; border-radius: 18px; text-align: center;">
-                    <div style="width: 70px; height: 70px; background: rgba(255,152,0,0.15); border-radius: 50%; margin: 0 auto 1.3rem; display: flex; align-items: center; justify-content: center;">
-                        <i class="fab fa-github fa-2x" style="color: var(--accent);"></i>
+                <div class="glass" style="padding: 1.8rem; border-radius: 16px; text-align: center;">
+                    <div style="width: 64px; height: 64px; background: var(--accent-soft); border-radius: 50%; margin: 0 auto 1.2rem; display: flex; align-items: center; justify-content: center;">
+                        <i class="fab fa-github fa-xl" style="color: var(--accent);"></i>
                     </div>
-                    <h3 style="font-size: 1.35rem; margin-bottom: 0.6rem;">گیت‌هاب</h3>
-                    <p style="color: #aaa; margin-bottom: 1.2rem; font-size: 0.95rem;">سورس کد، گزارش باگ و مشارکت در توسعه</p>
-                    <a href="https://github.com/sadra-hatami/Mathematics_Toolbox" target="_blank" class="btn btn-outline" style="padding: 0.7rem 1.8rem; font-size: 0.95rem; width: 100%; justify-content: center;">
-                        sadra-hatami/Mathematics_Toolbox
+                    <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">گیت‌هاب</h3>
+                    <p style="color: #999; margin-bottom: 1.1rem; font-size: 0.9rem;">سورس کد، گزارش باگ و مشارکت در توسعه</p>
+                    <a href="https://github.com/sadra-hatami/Mathematics-Toolbox" target="_blank" class="btn btn-outline" style="padding: 0.6rem 1.4rem; font-size: 0.88rem; width: 100%; justify-content: center;">
+                        Mathematics-Toolbox
                     </a>
                 </div>
                 
-                <!-- Developer Email -->
-                <div class="glass card-hover" style="padding: 2rem; border-radius: 18px; text-align: center;">
-                    <div style="width: 70px; height: 70px; background: rgba(255,152,0,0.15); border-radius: 50%; margin: 0 auto 1.3rem; display: flex; align-items: center; justify-content: center;">
-                        <i class="fas fa-user fa-2x" style="color: var(--accent);"></i>
+                <div class="glass" style="padding: 1.8rem; border-radius: 16px; text-align: center;">
+                    <div style="width: 64px; height: 64px; background: var(--accent-soft); border-radius: 50%; margin: 0 auto 1.2rem; display: flex; align-items: center; justify-content: center;">
+                        <i class="fas fa-user fa-xl" style="color: var(--accent);"></i>
                     </div>
-                    <h3 style="font-size: 1.35rem; margin-bottom: 0.6rem;">ایمیل سازنده</h3>
-                    <p style="color: #aaa; margin-bottom: 1.2rem; font-size: 0.95rem;">ارتباط مستقیم با برنامه‌نویس</p>
-                    <a href="mailto:sadra.hatami.1732@gmail.com" class="btn btn-outline" style="padding: 0.7rem 1.8rem; font-size: 0.95rem; width: 100%; justify-content: center;">
+                    <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">ایمیل سازنده</h3>
+                    <p style="color: #999; margin-bottom: 1.1rem; font-size: 0.9rem;">ارتباط مستقیم با برنامه‌نویس</p>
+                    <a href="mailto:sadra.hatami.1732@gmail.com" class="btn btn-outline" style="padding: 0.6rem 1.4rem; font-size: 0.88rem; width: 100%; justify-content: center;">
                         sadra.hatami.1732@gmail.com
                     </a>
                 </div>
-                
             </div>
             
-            <div style="text-align: center; margin-top: 3rem; color: #888; font-size: 0.95rem;">
+            <div style="text-align: center; margin-top: 2.8rem; color: #777; font-size: 0.92rem;">
                 ما معمولاً ظرف ۲۴ ساعت به پیام‌های شما پاسخ می‌دهیم ❤️
             </div>
         </div>
     </div>
 
-    <footer style="background:#111; padding:1.6rem 1rem; text-align:center; font-size:0.85rem; color:#666; border-top:1px solid #222;">
+    <footer>
         © ۱۴۰۴ — جعبه ابزار ریاضیات — تمامی حقوق محفوظ است<br>
         طراحی شده با ❤️ برای جامعه ریاضی‌دانان ایران و جهان<br>
-        <a href="https://github.com/sadra-hatami/Mathematics_Toolbox" target="_blank" style="color: #FF9800; text-decoration: none; margin-top: 6px; display: inline-block;">
+        <a href="https://github.com/sadra-hatami/Mathematics-Toolbox" target="_blank" style="margin-top: 6px; display: inline-block;">
             <i class="fab fa-github"></i> لینک گیت‌هاب برنامه
         </a><br>
-        <a href="mailto:mathematics.toolbox.sadra@gmail.com" target="_blank" style="color: #FF9800; text-decoration: none; margin-top: 6px; display: inline-block;">
+        <a href="mailto:mathematics.toolbox.sadra@gmail.com" style="margin-top: 4px; display: inline-block;">
             ایمیل پشتیبانی
         </a>
     </footer>
@@ -907,43 +955,49 @@
     <script>
         // ==================== PAGE SWITCHER ====================
         function showPage(pageId) {
+            // Hide all pages
             document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            
+            // Show target page
             const page = document.getElementById('page-' + pageId);
             if (page) page.classList.add('active');
             
-            // Update nav active state
-            document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
-            const activeLink = document.querySelector(`.nav-links a[onclick*="${pageId}"]`);
-            if (activeLink) activeLink.classList.add('active');
+            // Update desktop nav active state
+            document.querySelectorAll('.nav-links a').forEach(a => {
+                a.classList.remove('active');
+                if (a.dataset.page === pageId) a.classList.add('active');
+            });
             
-            // Close mobile menu and reset hamburger icon
-            const mobile = document.getElementById('mobile-menu');
+            // Always close mobile menu
+            closeMobileMenu();
+            
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        function closeMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
             const icon = document.getElementById('hamburger-icon');
-            if (mobile) mobile.style.display = 'none';
+            
+            if (menu) menu.style.display = 'none';
             if (icon) {
                 icon.classList.remove('fa-times');
                 icon.classList.add('fa-bars');
-                icon.style.transform = 'rotate(0deg)';
             }
-            
-            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
         
         function toggleMobileMenu() {
             const menu = document.getElementById('mobile-menu');
             const icon = document.getElementById('hamburger-icon');
-            const btn = document.getElementById('hamburger-btn');
+            
+            if (!menu || !icon) return;
             
             if (menu.style.display === 'block') {
-                menu.style.display = 'none';
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-                icon.style.transform = 'rotate(0deg)';
+                closeMobileMenu();
             } else {
                 menu.style.display = 'block';
                 icon.classList.remove('fa-bars');
                 icon.classList.add('fa-times');
-                icon.style.transform = 'rotate(90deg)';
             }
         }
         
@@ -961,7 +1015,7 @@
             
             {cat:"sequences", name:"n-امین عدد فیبوناچی", desc:"محاسبه سریع n-امین جمله دنباله فیبوناچی", icon:"fa-infinity"},
             {cat:"sequences", name:"ترتیب در دنباله فیبوناچی", desc:"پیدا کردن موقعیت عدد در دنباله فیبوناچی", icon:"fa-sort"},
-            {cat:"sequences", name:"n-امین عدد فیثاغورثی", desc:"پیدا کردن n-امین سه‌تایی فیثاغورثی", icon:"fa-square-root-alt"},
+            {cat:"sequences", name:"n-امین عدد فیثاغورثی", desc:"پیدا کردن n-امین سه‌تایی فیثاغورثی", icon:"fa-square-root-variable"},
             {cat:"sequences", name:"ترتیب عدد فیثاغورثی", desc:"پیدا کردن موقعیت عدد در دنباله فیثاغورثی", icon:"fa-sort-numeric-up"},
             
             {cat:"algebra", name:"تجزیه عبارت جبری", desc:"تجزیه کامل عبارات جبری با SymPy", icon:"fa-expand-arrows-alt"},
@@ -972,7 +1026,7 @@
             {cat:"geometry", name:"رسم n-ضلعی منتظم", desc:"رسم دقیق n-ضلعی منتظم با محاسبه مساحت", icon:"fa-draw-polygon"},
             {cat:"geometry", name:"رسم چندضلعی دلخواه", desc:"رسم چندضلعی با مختصات دلخواه", icon:"fa-shapes"},
             {cat:"geometry", name:"مساحت، حجم و محیط اشکال", desc:"محاسبه مساحت، حجم و محیط اشکال هندسی", icon:"fa-ruler-combined"},
-            {cat:"geometry", name:"قضیه فیثاغورث", desc:"بررسی و محاسبه قضیه فیثاغورث", icon:"fa-square-root-alt"},
+            {cat:"geometry", name:"قضیه فیثاغورث", desc:"بررسی و محاسبه قضیه فیثاغورث", icon:"fa-square-root-variable"},
             {cat:"geometry", name:"زاویه‌های محاطی و مرکزی", desc:"محاسبه زاویه‌های محاطی، مرکزی و ظلی", icon:"fa-compass"},
             {cat:"geometry", name:"تقارن نسبت به خط و نقطه", desc:"بررسی تقارن اشکال نسبت به خط و نقطه", icon:"fa-sync-alt"},
             {cat:"geometry", name:"هم‌نهشتی و تشابه اشکال", desc:"تشخیص هم‌نهشتی و تشابه با مختصات", icon:"fa-clone"},
@@ -996,15 +1050,21 @@
         
         function getCategoryLabel(cat) {
             const map = {
-                'number-theory':'نظریه اعداد','sequences':'دنباله‌ها','algebra':'جبر و معادلات',
-                'geometry':'هندسه','vectors':'بردارها','combinatorics':'جایگشت و ترکیب',
-                'stats':'آمار و احتمال','education':'آموزشی'
+                'number-theory':'نظریه اعداد',
+                'sequences':'دنباله‌ها',
+                'algebra':'جبر و معادلات',
+                'geometry':'هندسه',
+                'vectors':'بردارها',
+                'combinatorics':'جایگشت و ترکیب',
+                'stats':'آمار و احتمال',
+                'education':'آموزشی'
             };
             return map[cat] || cat;
         }
         
         function renderTools(filtered = tools) {
             const grid = document.getElementById('tools-grid');
+            if (!grid) return;
             grid.innerHTML = '';
             
             filtered.forEach(t => {
@@ -1017,8 +1077,8 @@
                     <div class="tool-icon">
                         <i class="fas ${t.icon}"></i>
                     </div>
-                    <h4 style="font-size:1.12rem; margin-bottom:0.45rem; line-height:1.3;">${t.name}</h4>
-                    <p style="color:#aaa; font-size:0.9rem; line-height:1.55;">${t.desc}</p>
+                    <h4>${t.name}</h4>
+                    <p>${t.desc}</p>
                     <span class="category-pill">${getCategoryLabel(t.cat)}</span>
                 `;
                 grid.appendChild(card);
@@ -1028,11 +1088,11 @@
         let currentFilter = 'all';
         
         function filterTools() {
-            const term = document.getElementById('search-input').value.toLowerCase().trim();
+            const term = (document.getElementById('search-input')?.value || '').toLowerCase().trim();
             const cards = document.querySelectorAll('#tools-grid .tool-card');
             
             cards.forEach(card => {
-                const name = card.dataset.name;
+                const name = card.dataset.name || '';
                 const cat = card.dataset.category;
                 const matchSearch = name.includes(term);
                 const matchCat = currentFilter === 'all' || cat === currentFilter;
@@ -1043,103 +1103,40 @@
         function filterByCategory(cat, btn) {
             currentFilter = cat;
             
-            // Update buttons
             document.querySelectorAll('#category-filters .filter-btn').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
+            if (btn) btn.classList.add('active');
             
-            const term = document.getElementById('search-input').value.toLowerCase().trim();
-            const cards = document.querySelectorAll('#tools-grid .tool-card');
-            
-            cards.forEach(card => {
-                const name = card.dataset.name;
-                const cardCat = card.dataset.category;
-                const matchSearch = name.includes(term);
-                const matchCat = cat === 'all' || cardCat === cat;
-                card.style.display = (matchSearch && matchCat) ? '' : 'none';
-            });
-        }
-        
-        // ==================== ANIMATED COUNTERS ====================
-        function animateCounter(id, target, suffix = '') {
-            const el = document.getElementById(id);
-            if (!el) return;
-            let current = 0;
-            const increment = Math.ceil(target / 45);
-            const timer = setInterval(() => {
-                current += increment;
-                if (current >= target) {
-                    el.textContent = target + suffix;
-                    clearInterval(timer);
-                } else {
-                    el.textContent = current + suffix;
-                }
-            }, 45);
-        }
-        
-        function initCounters() {
-            // Only animate when home is visible
-            setTimeout(() => {
-                if (document.getElementById('page-home').classList.contains('active')) {
-                    animateCounter('stat-tools', 32, '+');
-                    animateCounter('stat-categories', 7);
-                }
-            }, 800);
+            filterTools();
         }
         
         // ==================== INIT ====================
         function init() {
-            // Render tools
             renderTools();
             
-            // Show home
-            document.getElementById('page-home').classList.add('active');
-            
-            // Set active nav
-            const homeLink = document.querySelector('.nav-links a');
-            if (homeLink) homeLink.classList.add('active');
-            
-            // Search enter clears or filters
-            const search = document.getElementById('search-input');
-            if (search) {
-                search.addEventListener('keyup', e => {
-                    if (e.key === 'Escape') {
-                        search.value = '';
-                        filterTools();
-                    }
-                });
-            }
-            
-            // Animate counters on load
-            initCounters();
-            
-            // Keyboard shortcut "/" focuses search on features page
+            // Keyboard shortcut for search
             document.addEventListener('keydown', e => {
-                if (e.key === '/' && document.getElementById('page-features').classList.contains('active')) {
+                if (e.key === '/' && document.getElementById('page-features')?.classList.contains('active')) {
                     e.preventDefault();
-                    const s = document.getElementById('search-input');
-                    if (s) s.focus();
+                    document.getElementById('search-input')?.focus();
+                }
+                // Escape closes mobile menu
+                if (e.key === 'Escape') {
+                    closeMobileMenu();
                 }
             });
             
-            // Easter egg on logo
-            let clicks = 0;
-            const logo = document.querySelector('.logo');
-            if (logo) {
-                logo.addEventListener('click', () => {
-                    clicks++;
-                    if (clicks >= 5) {
-                        clicks = 0;
-                        const orig = logo.innerHTML;
-                        logo.style.transition = 'all .3s';
-                        logo.innerHTML = `<span style="color:var(--accent);">ریاضیات = زیباییِ صبر ✨</span>`;
-                        setTimeout(() => {
-                            if (logo) logo.innerHTML = orig;
-                        }, 2100);
-                    }
-                });
-            }
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', e => {
+                const menu = document.getElementById('mobile-menu');
+                const btn = document.getElementById('hamburger-btn');
+                if (menu && menu.style.display === 'block' && 
+                    !menu.contains(e.target) && 
+                    !btn.contains(e.target)) {
+                    closeMobileMenu();
+                }
+            });
             
-            console.log('%c[Mathematics Toolbox] Improved responsive & creative website ready.', 'color:#666');
+            console.log('%c[Mathematics Toolbox] Website ready.', 'color:#FF9800; font-weight:bold;');
         }
         
         window.onload = init;
